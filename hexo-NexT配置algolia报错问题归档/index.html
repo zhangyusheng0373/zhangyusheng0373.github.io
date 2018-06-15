@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="NexT官方主题配置：http://theme-next.iissnan.com/third-party-services.html#algolia-search">
+<meta name="description" content="NexT官方主题配置：http://theme-next.iissnan.com/third-party-services.html#algolia-search踩坑一：配置文件格式不正确 1、按照官方配置Algolia搜索后，在git bash上执行hexo algolia报错: ERROR [Algolia] Please provide an Algolia index name in yo">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo NexT配置algolia报错问题归档">
 <meta property="og:url" content="http://yoursite.com/hexo-NexT配置algolia报错问题归档/index.html">
 <meta property="og:site_name" content="张雨生的博客">
-<meta property="og:description" content="NexT官方主题配置：http://theme-next.iissnan.com/third-party-services.html#algolia-search">
+<meta property="og:description" content="NexT官方主题配置：http://theme-next.iissnan.com/third-party-services.html#algolia-search踩坑一：配置文件格式不正确 1、按照官方配置Algolia搜索后，在git bash上执行hexo algolia报错: ERROR [Algolia] Please provide an Algolia index name in yo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-14T11:10:40.822Z">
+<meta property="og:updated_time" content="2018-06-15T06:54:35.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo NexT配置algolia报错问题归档">
-<meta name="twitter:description" content="NexT官方主题配置：http://theme-next.iissnan.com/third-party-services.html#algolia-search">
+<meta name="twitter:description" content="NexT官方主题配置：http://theme-next.iissnan.com/third-party-services.html#algolia-search踩坑一：配置文件格式不正确 1、按照官方配置Algolia搜索后，在git bash上执行hexo algolia报错: ERROR [Algolia] Please provide an Algolia index name in yo">
 
 
 
@@ -100,7 +100,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -194,7 +194,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -204,7 +204,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -212,7 +212,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -390,11 +390,16 @@
       
 
       
-        <p>NexT官方主题配置：<a href="http://theme-next.iissnan.com/third-party-services.html#algolia-search" target="_blank" rel="noopener">http://theme-next.iissnan.com/third-party-services.html#algolia-search</a><br><a id="more"></a><br>踩坑一：<br>1、按照官方配置Algolia搜索后，在git bash上执行hexo algolia报错，<br>ERROR [Algolia] Please provide an Algolia index name in your hexo _config.yml file.<br>ERROR &gt;&gt; Read <a href="https://npmjs.com/hexo-algolia#public-facing-search-options" target="_blank" rel="noopener">https://npmjs.com/hexo-algolia#public-facing-search-options</a> for more informations.</p>
-<p>   报错内容提示找不到index name，检查_config.yml 的确配上了。见下图，</p>
-<p>   后来发现，配置项前要加上缩进。再次修改后，再次执行hexo algolia就可以成功搭建啦。</p>
-<p>踩坑二：<br>  部署好之后，点击页面上的搜索无响应。查看控制台，发现报错：设置无效。<br>  报错内容：</p>
-<p>  再次检查配置发现和官方要求的配置项一样。度娘后，发现竟然还要加入apiKey和adminApiKey。才能正常使用。<br>  加上后再部署下。点击页面搜索，大功告成。</p>
+        <p>NexT官方主题配置：<a href="http://theme-next.iissnan.com/third-party-services.html#algolia-search" target="_blank" rel="noopener">http://theme-next.iissnan.com/third-party-services.html#algolia-search</a><br><div class="note success"><h1 id="踩坑一：配置文件格式不正确"><a href="#踩坑一：配置文件格式不正确" class="headerlink" title="踩坑一：配置文件格式不正确"></a>踩坑一：配置文件格式不正确</h1></div>
+1、按照官方配置Algolia搜索后，在git bash上执行hexo algolia报错:<br>
+<blockquote><p>ERROR [Algolia] Please provide an Algolia index name in your hexo _config.yml file.<br>ERROR &gt;&gt; Read <a href="https://npmjs.com/hexo-algolia#public-facing-search-options" target="_blank" rel="noopener">https://npmjs.com/hexo-algolia#public-facing-search-options</a> for more informations.</p>
+</blockquote>
+报错内容提示找不到index name，检查_config.yml 的确配上了。见下图，
+
+后来发现，配置项前要加上缩进。再次修改后，再次执行hexoalgolia就可以成功搭建啦。
+
+<div class="note success"><h1 id="踩坑二：配置文件缺失"><a href="#踩坑二：配置文件缺失" class="headerlink" title="踩坑二：配置文件缺失"></a>踩坑二：配置文件缺失</h1></div><br>部署好之后，点击页面上的搜索无响应。查看控制台，发现报错,设置无效:<br><blockquote><p>Algolia Settings are invalid.</p>
+</blockquote><br>再次检查配置发现和官方要求的配置项一样。度娘后，发现竟然还要加入apiKey和adminApiKey。才能正常使用。<br>加上后再部署下。点击页面搜索，大功告成。</p>
 
       
     </div>
@@ -404,6 +409,35 @@
 
     
 
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章内容对你有帮助，就赏博主一根棒棒糖吧~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="张雨生 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="张雨生 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
     
 
     
@@ -472,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,7 +533,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
                   <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
@@ -542,13 +585,13 @@
                   <span class="links-of-author-item">
                     <a href="http://weibo.com/2763393947" target="_blank" title="微博">
                       
-                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
                   </span>
                 
                   <span class="links-of-author-item">
                     <a href="http://www.zhihu.com/people/zhang-yu-sheng-89" target="_blank" title="知乎">
                       
-                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                        <i class="fa fa-fw fa-safari"></i>知乎</a>
                   </span>
                 
             </div>
@@ -565,6 +608,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑一：配置文件格式不正确"><span class="nav-number">1.</span> <span class="nav-text">踩坑一：配置文件格式不正确</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#踩坑二：配置文件缺失"><span class="nav-number">2.</span> <span class="nav-text">踩坑二：配置文件缺失</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -589,15 +648,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -617,6 +670,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -801,6 +856,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
