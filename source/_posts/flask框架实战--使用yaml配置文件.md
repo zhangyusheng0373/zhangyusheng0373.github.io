@@ -1,7 +1,7 @@
 ---
 title: flask框架实战--使用yaml配置文件
 date: 2019-08-28 21:54:43
-categories: "python", "flask框架"
+categories: "flask框架"
 tags: 
   - 技术
   - python
