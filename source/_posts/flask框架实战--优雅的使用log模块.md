@@ -1,5 +1,5 @@
 ---
-title: flask框架实战--使用yaml配置文件
+title: flask框架实战--优雅的使用log模块
 date: 2019-09-04 22:36:03
 categories: "flask框架"
 tags: 
