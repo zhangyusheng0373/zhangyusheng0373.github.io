@@ -27,7 +27,7 @@ toc: true
 
 ### 日志在Flask之中的基础使用方法
 首先我们从最简单的Flask程序开始。 从官网复制一个最小的能运行的Flask程序， 如下：
-```
+```python
 # -*- coding:utf-8 -*-
 # Copied From :http://flask.pocoo.org/docs/1.0/quickstart/#a-minimal-application
 from flask import Flask
@@ -42,7 +42,7 @@ if __name__ == '__main__':
     app.run()
 ```
 毫无疑问， 访问http://127.0.0.1:5000 就能看到Hello World的输出。 接下来， 我们开始设置日志。 具体参考下面的代码：
-```
+```python
 # -*- coding:utf-8 -*-
 from flask import Flask
 import logging
@@ -90,7 +90,7 @@ Error msg!!!
 
 **按照日志大小切分**
 如果是按照大小进行切分， 引入`RotatingFileHandler` 即可。 举例：
-```
+```python
 from logging.handlers import RotatingFileHandler 
 handler = RotatingFileHandler("flask.log", maxBytes=1024000, backupCount=10)
 ```
@@ -103,7 +103,7 @@ handler = RotatingFileHandler("flask.log", maxBytes=1024000, backupCount=10)
 更详细的解释可以看看官网说明: https://docs.python.org/2/library/logging.handlers.html#rotatingfilehandler
 **按照日期进行切分**
 个人比较习惯这种方式。 在logging这个库之中， 还支持按照分钟、小时、天等级别进行切分。 根据我们业务的大小， 我一般选择按照“天” 进行切分。 可以参考下面的配置：
-```
+```python
 from logging.handlers import TimedRotatingFileHandler
 handler = TimedRotatingFileHandler(
         "flask.log", when="D", interval=1, backupCount=15,
@@ -117,7 +117,7 @@ handler = TimedRotatingFileHandler(
 
 **配置日志格式**
 前面我们也看到， 在日志文件之中， 除了记录下来的消息， 其他辅助信息完全没有。 以下是我自己的配置以及相应的输出
-```
+```python
 # My Config
 # [%(asctime)s][%(filename)s:%(lineno)d][%(levelname)s][%(thread)d] - %(message)s
 
@@ -133,7 +133,8 @@ handler = TimedRotatingFileHandler(
 
 我们先基于前面的程序搭好框架： 
 **主入口 main.py**
-```
+
+```python
 # -*- coding:utf-8 -*-
 from flask import Flask
 import logging
@@ -167,6 +168,7 @@ if __name__ == '__main__':
 ```
 **注意：** 已经注册好了蓝图`simple_page`, 并且设置了`url_prefix=simple_page`
 **蓝图 views.simple_page**
+
 ```
 from flask import Blueprint
 
@@ -215,7 +217,7 @@ def show():
 
 我们接着上面Blueprint的代码接着写。
 **主入口main.py**
-```
+```python
 # -*- coding:utf-8 -*-
 from flask import Flask
 import logging
@@ -266,7 +268,7 @@ if __name__ == '__main__':
     app.run()
 ```
 关键部分：
-```
+```python
 # 引入类库
 from logging.handlers import SMTPHandler
 
@@ -292,7 +294,7 @@ app.logger.addHandler(mail_handler)
 * 通过`LogFilter`
 * 通过自定义的`Formatter`
 假设我们在Log之中需要增加当前的环境的hostname，我们新的formatter长下面这样
-```
+```python
 # 原来的formatter
 [%(asctime)s][%(filename)s:%(lineno)d][%(levelname)s][%(thread)d] - %(message)s
 
@@ -300,7 +302,7 @@ app.logger.addHandler(mail_handler)
 (%(hostname)s)[%(asctime)s][%(filename)s:%(lineno)d][%(levelname)s][%(thread)d] - %(message)s
 ```
 **使用LogFilter的方式**
-```
+```python
 # 首先自定义一个LogFilter
 class ContextFilter(logging.Filter):
     '''Enhances log messages with contextual information'''
