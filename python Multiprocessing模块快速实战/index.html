@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="背景众所周知，flask框架非常轻量且灵活。项目中可能会碰很多配置项(如数据库账号、不同环境的URL域名、一些邮箱等配置)，经考量后，使用PyYAML模块，将众多配置放到统一的yaml配置文件中，来加载众多配置，方便统一管理。 使用何为YAML文件？YAML是一种直观的能够被电脑识别的的数据序列化格式，容易被人类阅读，并且容易和脚本语言交互。YAML类似于XML，JSON等，但是语法简单得多，对于">
+<meta name="description" content="背景&amp;emsp;&amp;emsp;测试项目中，碰到一个场景，大体是需要验证多个表中的数据正确性。8000W的用户量，所以写一个脚本来抽查其中一部分。&amp;emsp;&amp;emsp;初步使用python写单线程脚本，跑1W数据，大约需要十几分钟。可见效率之低下。于是考虑使用Multiprocessing来加快执行速度，以及对比下效果。&amp;emsp;&amp;emsp;本文不做模块科普，只从实战角度讲起，教你如何快速把单线程">
 <meta name="keywords" content="技术,python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flask框架实战--使用yaml配置文件">
-<meta property="og:url" content="http://ysblog.top/flask框架实战--使用yaml配置文件/index.html">
+<meta property="og:title" content="python Multiprocessing模块快速实战">
+<meta property="og:url" content="http://ysblog.top/python Multiprocessing模块快速实战/index.html">
 <meta property="og:site_name" content="张雨生的博客">
-<meta property="og:description" content="背景众所周知，flask框架非常轻量且灵活。项目中可能会碰很多配置项(如数据库账号、不同环境的URL域名、一些邮箱等配置)，经考量后，使用PyYAML模块，将众多配置放到统一的yaml配置文件中，来加载众多配置，方便统一管理。 使用何为YAML文件？YAML是一种直观的能够被电脑识别的的数据序列化格式，容易被人类阅读，并且容易和脚本语言交互。YAML类似于XML，JSON等，但是语法简单得多，对于">
+<meta property="og:description" content="背景&amp;emsp;&amp;emsp;测试项目中，碰到一个场景，大体是需要验证多个表中的数据正确性。8000W的用户量，所以写一个脚本来抽查其中一部分。&amp;emsp;&amp;emsp;初步使用python写单线程脚本，跑1W数据，大约需要十几分钟。可见效率之低下。于是考虑使用Multiprocessing来加快执行速度，以及对比下效果。&amp;emsp;&amp;emsp;本文不做模块科普，只从实战角度讲起，教你如何快速把单线程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-28T14:00:30.474Z">
+<meta property="og:updated_time" content="2019-09-25T02:37:25.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flask框架实战--使用yaml配置文件">
-<meta name="twitter:description" content="背景众所周知，flask框架非常轻量且灵活。项目中可能会碰很多配置项(如数据库账号、不同环境的URL域名、一些邮箱等配置)，经考量后，使用PyYAML模块，将众多配置放到统一的yaml配置文件中，来加载众多配置，方便统一管理。 使用何为YAML文件？YAML是一种直观的能够被电脑识别的的数据序列化格式，容易被人类阅读，并且容易和脚本语言交互。YAML类似于XML，JSON等，但是语法简单得多，对于">
+<meta name="twitter:title" content="python Multiprocessing模块快速实战">
+<meta name="twitter:description" content="背景&amp;emsp;&amp;emsp;测试项目中，碰到一个场景，大体是需要验证多个表中的数据正确性。8000W的用户量，所以写一个脚本来抽查其中一部分。&amp;emsp;&amp;emsp;初步使用python写单线程脚本，跑1W数据，大约需要十几分钟。可见效率之低下。于是考虑使用Multiprocessing来加快执行速度，以及对比下效果。&amp;emsp;&amp;emsp;本文不做模块科普，只从实战角度讲起，教你如何快速把单线程">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://ysblog.top/flask框架实战--使用yaml配置文件/">
+  <link rel="canonical" href="http://ysblog.top/python Multiprocessing模块快速实战/">
 
 
 
 
 
-  <title>flask框架实战--使用yaml配置文件 | 张雨生的博客</title>
+  <title>python Multiprocessing模块快速实战 | 张雨生的博客</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysblog.top/flask框架实战--使用yaml配置文件/">
+    <link itemprop="mainEntityOfPage" href="http://ysblog.top/python Multiprocessing模块快速实战/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张雨生">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">flask框架实战--使用yaml配置文件</h1>
+          <h1 class="post-title" itemprop="name headline">python Multiprocessing模块快速实战</h1>
         
 
         <div class="post-meta">
@@ -330,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-28T21:54:43+08:00">
-                2019-08-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-25T10:36:43+08:00">
+                2019-09-25
               </time>
             
 
@@ -353,8 +353,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/flask框架/" itemprop="url" rel="index">
-                    <span itemprop="name">flask框架</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -371,8 +371,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/flask框架实战--使用yaml配置文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/flask框架实战--使用yaml配置文件/" itemprop="commentCount"></span>
+                <a href="/python Multiprocessing模块快速实战/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/python Multiprocessing模块快速实战/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,7 +380,7 @@
 
           
           
-             <span id="/flask框架实战--使用yaml配置文件/" class="leancloud_visitors" data-flag-title="flask框架实战--使用yaml配置文件">
+             <span id="/python Multiprocessing模块快速实战/" class="leancloud_visitors" data-flag-title="python Multiprocessing模块快速实战">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,30 +411,18 @@
       
 
       
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>众所周知，flask框架非常轻量且灵活。项目中可能会碰很多配置项(如数据库账号、不同环境的URL域名、一些邮箱等配置)，经考量后，使用PyYAML模块，将众多配置放到统一的yaml配置文件中，来加载众多配置，方便统一管理。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="何为YAML文件？"><a href="#何为YAML文件？" class="headerlink" title="何为YAML文件？"></a>何为YAML文件？</h3><p>YAML是一种直观的能够被电脑识别的的数据序列化格式，容易被人类阅读，并且容易和脚本语言交互。YAML类似于XML，JSON等，但是语法简单得多，对于转化成数组或可以hash的数据时是很简单有效的。</p>
-<h3 id="YAML文件格式"><a href="#YAML文件格式" class="headerlink" title="YAML文件格式"></a>YAML文件格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># yaml格式</span><br><span class="line"># 使用#号注释</span><br><span class="line">USER_CENTER_URL: &quot;https://xx.example.com/ba037&quot;</span><br><span class="line"># 数据库配置</span><br><span class="line">ORDER_DATABASE_CONFIG: &#123;</span><br><span class="line">    &quot;host&quot;: &quot;172.21.0.9&quot;,</span><br><span class="line">    &quot;port&quot;: 3306,</span><br><span class="line">    &quot;user&quot;: &quot;root&quot;,</span><br><span class="line">    &quot;passwd&quot;: &quot;password&quot;,</span><br><span class="line">    &quot;db&quot;: &quot;database_name&quot;</span><br><span class="line">  &#125;</span><br><span class="line">USER:</span><br><span class="line"> - ID: 1</span><br><span class="line">   NAME: &quot;a&quot;</span><br><span class="line"> - ID: 2</span><br><span class="line">   NAME: &quot;b&quot;</span><br></pre></td></tr></table></figure>
-<p>在python中，使用PyYAML解析后，以字典(dict)格式返回对象。然后按照字典方式取值即可，输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   &quot;USER_CENTER_URL&quot;:  &quot;https://xx.example.com/ba037&quot;,</span><br><span class="line">   &quot;ORDER_DATABASE_CONFIG&quot;: &#123;</span><br><span class="line">    &quot;host&quot;: &quot;172.21.0.9&quot;,</span><br><span class="line">    &quot;port&quot;: 3306,</span><br><span class="line">    &quot;user&quot;: &quot;root&quot;,</span><br><span class="line">    &quot;passwd&quot;: &quot;password&quot;,</span><br><span class="line">    &quot;db&quot;: &quot;database_name&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;USER&quot;: [&#123;&quot;ID&quot;: 1, &quot;name&quot;: &quot;a&quot;&#125;, &#123;&quot;ID&quot;: 2, &quot;NAME&quot;: &quot;b&quot;&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="PyYAML安装"><a href="#PyYAML安装" class="headerlink" title="PyYAML安装"></a>PyYAML安装</h3><p>预知环境：</p>
-<ul>
-<li>python3</li>
-<li>已安装flask模块  </li>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>&emsp;&emsp;测试项目中，碰到一个场景，大体是需要验证多个表中的数据正确性。8000W的用户量，所以写一个脚本来抽查其中一部分。<br>&emsp;&emsp;初步使用python写单线程脚本，跑1W数据，大约需要十几分钟。可见效率之低下。于是考虑使用Multiprocessing来加快执行速度，以及对比下效果。<br>&emsp;&emsp;本文不做模块科普，只从实战角度讲起，教你如何快速把单线程变成多进程方式来加快执行速度。  </p>
+<h2 id="Multiprocessing-模块使用"><a href="#Multiprocessing-模块使用" class="headerlink" title="Multiprocessing 模块使用"></a>Multiprocessing 模块使用</h2><h3 id="多进程使用要点概览："><a href="#多进程使用要点概览：" class="headerlink" title="多进程使用要点概览："></a>多进程使用要点概览：</h3><ul>
+<li>创建Pool，进程池</li>
+<li>map,开始执行</li>
+<li>close， 关闭进程池</li>
+<li>join， 等待子进程执行完毕</li>
 </ul>
-<p>这里我们直接使用pip来安装即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@VM_122_122_centos ~]# pip install PyYAML</span><br></pre></td></tr></table></figure></p>
-<h3 id="PyYAML使用"><a href="#PyYAML使用" class="headerlink" title="PyYAML使用"></a>PyYAML使用</h3><p>安装完成之后，我们在flask框架中的app.py中编写读取yaml文件函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 导入yaml 文件</span><br><span class="line">import yaml</span><br><span class="line"># 读取yaml文件函数(path为yaml文件路径)</span><br><span class="line">def read_yaml(path):</span><br><span class="line">    with open(path, &apos;rb&apos;) as f:</span><br><span class="line">        cf= f.read()</span><br><span class="line">    cf = yaml.load(cf)</span><br><span class="line">return cf</span><br></pre></td></tr></table></figure></p>
-<p>使flask加载yaml中的配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">cf = read_yaml(&quot;config.yaml&quot;)</span><br><span class="line">app.config.update(cf)</span><br></pre></td></tr></table></figure></p>
-<p>完整app.py代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">from flask_restful import Api</span><br><span class="line">import importlib</span><br><span class="line">import sys</span><br><span class="line">import os</span><br><span class="line">import logging</span><br><span class="line">import yaml</span><br><span class="line">importlib.reload(sys)</span><br><span class="line">sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__))))</span><br><span class="line">sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), &apos;..&apos;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def create_app():</span><br><span class="line">    app = Flask(__name__)</span><br><span class="line">    # log初始化</span><br><span class="line">    handler = logging.FileHandler(filename=&apos;log/flask.log&apos;, encoding=&apos;utf-8&apos;)</span><br><span class="line">    handler.setLevel(&quot;DEBUG&quot;)</span><br><span class="line">    format_ = &quot;%(asctime)s[%(name)s][%(levelname)s] :%(levelno)s: %(message)s&quot;</span><br><span class="line">    formatter = logging.Formatter(format_)</span><br><span class="line">    handler.setFormatter(formatter)</span><br><span class="line">    app.logger.addHandler(handler)</span><br><span class="line">    return app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def read_yaml(path):</span><br><span class="line">    with open(path, &apos;rb&apos;) as f:</span><br><span class="line">        cf = yaml.safe_load(f.read())</span><br><span class="line">    return cf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = create_app()</span><br><span class="line">api = Api(app)</span><br><span class="line">app.debug = True</span><br><span class="line">cf = read_yaml(&quot;conf.yaml&quot;)</span><br><span class="line">app.config.update(cf)</span><br></pre></td></tr></table></figure></p>
-<h3 id="在flask项目各个模块中使用yaml配置"><a href="#在flask项目各个模块中使用yaml配置" class="headerlink" title="在flask项目各个模块中使用yaml配置"></a>在flask项目各个模块中使用yaml配置</h3><p>比如要在数据库连接模块使用yaml中的配置。<br>我们需要从flask导入current_app，演示如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># coding=utf-8</span><br><span class="line">import pymysql</span><br><span class="line">from flask import current_app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class DataBaseQa(object):</span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line">        #这里获取到yaml中的配置</span><br><span class="line">        db_config = current_app.config[&apos;QA_DATABASE_CONFIG&apos;]</span><br><span class="line">        db = pymysql.Connect(**db_config)</span><br><span class="line">        self.cursor = db.cursor()</span><br><span class="line"></span><br><span class="line">    def query_user_openid(self, userid):</span><br><span class="line">        sql = &apos;select * from user.users where userid=&#123;&#125;&apos;.format(userid)</span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line">        res = self.cursor.fetchone()</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure></p>
-<p>其他模块，同样导入current_app，然后使用current_app.config[]读取配置即可。有关flask框架的current_app详细介绍，以后更新。(可理解为flask的应用实例对象)</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>flask项目中使用yaml的好处：</p>
-<ul>
-<li>yaml编写简单</li>
-<li>维护与修改配置文件容易</li>
-<li>更快速的进行环境的切换(比如创建测试环境和开发环境两套yaml配置,在flask启动是读取不同环境配置即可切换)</li>
-</ul>
-<blockquote>
-<p>参考文章：<br> <a href="https://blog.csdn.net/qq_22034353/article/details/88591681" target="_blank" rel="noopener">https://blog.csdn.net/qq_22034353/article/details/88591681</a></p>
-</blockquote>
+<h2 id="代码demo"><a href="#代码demo" class="headerlink" title="代码demo"></a>代码demo</h2><h3 id="单线程版"><a href="#单线程版" class="headerlink" title="单线程版"></a>单线程版</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 数据库配置</span></span><br><span class="line">db_config = &#123;</span><br><span class="line">  <span class="string">"host"</span>: <span class="string">"172.21.0.9"</span>,</span><br><span class="line">  <span class="string">"port"</span>: <span class="number">3306</span>,</span><br><span class="line">  <span class="string">"user"</span>: <span class="string">"root"</span>,</span><br><span class="line">  <span class="string">"passwd"</span>: <span class="string">"ni cai bu dao"</span>,</span><br><span class="line">  <span class="string">"db"</span>: <span class="string">"database_name"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库查询封装</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DB</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        db = pymysql.Connect(**db_config)</span><br><span class="line">        self.cursor = db.cursor()</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 查询用户最近一笔流水时间</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">query_user_flow</span><span class="params">(self, user_id)</span>:</span></span><br><span class="line">        ext = int(user_id) % <span class="number">100</span></span><br><span class="line">        sql = <span class="string">'select ctime from database_name.user_flow_&#123;&#125; where user_id=&#123;&#125; order by id desc limit 1;'</span>.format(ext, user_id)</span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line">        res = self.cursor.fetchone()</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    start_time = time.time()</span><br><span class="line">    <span class="comment"># 读取用户id</span></span><br><span class="line">    f = open(<span class="string">'./user_credit_bk.txt'</span>, <span class="string">'r'</span>).readlines()</span><br><span class="line">    <span class="comment"># 写入流水时间到新文件</span></span><br><span class="line">    nf = open(<span class="string">'./user_time.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">    flow = DB()</span><br><span class="line">    <span class="comment"># 初始化一个字典</span></span><br><span class="line">    user_dict = &#123;&#125;</span><br><span class="line">    <span class="comment"># 遍历userid</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        user = line.split(<span class="string">'\t'</span>)[<span class="number">0</span>]</span><br><span class="line">        atime = flow.query_user_flow(user)</span><br><span class="line">        <span class="comment"># 将userid和最近流水时间设为字典</span></span><br><span class="line">        user_dict.setdefault(user, atime[<span class="number">0</span>])</span><br><span class="line">    <span class="comment"># 按照流水时间倒序排序</span></span><br><span class="line">    new_list = sorted(user_dict.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment"># 遍历列表，写入新文件中</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> new_list:</span><br><span class="line">        nf.write(<span class="string">'&#123;time&#125;\t&#123;user&#125;\n'</span>.format(time=item[<span class="number">1</span>], user=item[<span class="number">0</span>]))</span><br><span class="line">    nf.close()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">'程序总共执行了&#123;&#125;s'</span>.format(int(end_time - start_time)))</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序总共执行了144s</span><br></pre></td></tr></table></figure></p>
+<h3 id="多进程版"><a href="#多进程版" class="headerlink" title="多进程版"></a>多进程版</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Manager, Pool</span><br><span class="line"><span class="comment"># 数据库配置</span></span><br><span class="line">db_config = &#123;</span><br><span class="line">  <span class="string">"host"</span>: <span class="string">"172.21.0.9"</span>,</span><br><span class="line">  <span class="string">"port"</span>: <span class="number">3306</span>,</span><br><span class="line">  <span class="string">"user"</span>: <span class="string">"root"</span>,</span><br><span class="line">  <span class="string">"passwd"</span>: <span class="string">"ni cai bu dao"</span>,</span><br><span class="line">  <span class="string">"db"</span>: <span class="string">"database_name"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库查询封装</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DB</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        db = pymysql.Connect(**db_config)</span><br><span class="line">        self.cursor = db.cursor()</span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 查询用户最近一笔流水时间</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">query_user_flow</span><span class="params">(self, user_id)</span>:</span></span><br><span class="line">        ext = int(user_id) % <span class="number">100</span></span><br><span class="line">        sql = <span class="string">'select ctime from database_name.user_flow_&#123;&#125; where user_id=&#123;&#125; order by id desc limit 1;'</span>.format(ext, user_id)</span><br><span class="line">        self.cursor.execute(sql)</span><br><span class="line">        res = self.cursor.fetchone()</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_time</span><span class="params">(user_info)</span>:</span></span><br><span class="line">    flow = DB()</span><br><span class="line">    user = user_info.split(<span class="string">'\t'</span>)[<span class="number">0</span>]</span><br><span class="line">    atime = flow.query_user_flow(user)</span><br><span class="line">    user_dict.setdefault(user, atime[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 开始时间</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line">    <span class="comment"># 读取用户数据</span></span><br><span class="line">    user_infos = open(<span class="string">'./user_credit_bk.txt'</span>, <span class="string">'r'</span>).readlines()</span><br><span class="line">    <span class="comment"># 写入流水时间到新文件</span></span><br><span class="line">    nf = open(<span class="string">'./user_time.txt'</span>, <span class="string">'w'</span>)</span><br><span class="line">    <span class="comment"># 初始化一个字典(进程共享变量)</span></span><br><span class="line">    user_dict = Manager().dict()</span><br><span class="line">    <span class="comment"># 创建10个进程</span></span><br><span class="line">    <span class="keyword">with</span> Pool(<span class="number">10</span>) <span class="keyword">as</span> pool:</span><br><span class="line">        pool.map(user_time, user_infos)</span><br><span class="line">        pool.close()</span><br><span class="line">        pool.join()</span><br><span class="line">    <span class="comment"># 按照流水时间倒序排序</span></span><br><span class="line">    new_list = sorted(user_dict.items(), key=<span class="keyword">lambda</span> item: item[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">    <span class="comment"># 遍历列表，写入新文件中</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> new_list:</span><br><span class="line">        nf.write(<span class="string">'&#123;time&#125;\t&#123;user&#125;\n'</span>.format(time=item[<span class="number">1</span>], user=item[<span class="number">0</span>]))</span><br><span class="line">    nf.close()</span><br><span class="line">    end_time = time.time()</span><br><span class="line">    print(<span class="string">'程序总共执行了&#123;&#125;s'</span>.format(int(end_time-start_time)))</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">程序总共执行了30s</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;可见多进程比单进程的快了将近5倍。<br>&emsp;&emsp;其实Multiprocessing里还有非常多的用法，比如消息队列，进程锁等等。有兴趣的同学可以一起来讨论。</p>
 
       
     </div>
@@ -496,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python3 “类”的理解及使用/" rel="next" title="python3 “类”的理解及使用">
-                <i class="fa fa-chevron-left"></i> python3 “类”的理解及使用
+              <a href="/flask框架实战--优雅的使用log模块/" rel="next" title="flask框架实战--优雅的使用log模块">
+                <i class="fa fa-chevron-left"></i> flask框架实战--优雅的使用log模块
               </a>
             
           </div>
@@ -505,10 +493,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/flask框架实战--优雅的使用log模块/" rel="prev" title="flask框架实战--优雅的使用log模块">
-                flask框架实战--优雅的使用log模块 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -673,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#何为YAML文件？"><span class="nav-number">2.1.</span> <span class="nav-text">何为YAML文件？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML文件格式"><span class="nav-number">2.2.</span> <span class="nav-text">YAML文件格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyYAML安装"><span class="nav-number">2.3.</span> <span class="nav-text">PyYAML安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyYAML使用"><span class="nav-number">2.4.</span> <span class="nav-text">PyYAML使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在flask项目各个模块中使用yaml配置"><span class="nav-number">2.5.</span> <span class="nav-text">在flask项目各个模块中使用yaml配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multiprocessing-模块使用"><span class="nav-number">2.</span> <span class="nav-text">Multiprocessing 模块使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多进程使用要点概览："><span class="nav-number">2.1.</span> <span class="nav-text">多进程使用要点概览：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码demo"><span class="nav-number">3.</span> <span class="nav-text">代码demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单线程版"><span class="nav-number">3.1.</span> <span class="nav-text">单线程版</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多进程版"><span class="nav-number">3.2.</span> <span class="nav-text">多进程版</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
